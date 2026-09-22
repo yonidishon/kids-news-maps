@@ -1,0 +1,182 @@
+{
+ "Bab-el-Mandeb": {
+  "cc": "dj",
+  "display_name": "Détroit de Bab-el-Mandeb باب المندب, ג'יבוטי",
+  "lat": 12.5743764,
+  "lon": 43.3128158,
+  "osm_id": 11169730,
+  "resolved": "2026-09-21",
+  "type": "strait"
+ },
+ "Москва город": {
+  "cc": "ru",
+  "display_name": "מוסקווה, Москва, Центральный федеральный округ, רוסיה",
+  "lat": 55.7505412,
+  "lon": 37.6174782,
+  "osm_id": 2555133,
+  "resolved": "2026-09-21",
+  "type": "city"
+ },
+ "אוטווה": {
+  "cc": "ca",
+  "display_name": "אוטווה, Eastern Ontario, אונטריו, קנדה",
+  "lat": 45.4208777,
+  "lon": -75.6901106,
+  "osm_id": 4136816,
+  "resolved": "2026-09-21",
+  "type": "city"
+ },
+ "אסמרה": {
+  "cc": "er",
+  "display_name": "אסמרה, ዞባ ማእከል Maekel zone المنطقة المركزية, אריתריאה",
+  "lat": 15.3389667,
+  "lon": 38.9326763,
+  "osm_id": 5621920820,
+  "resolved": "2026-09-21",
+  "type": "city"
+ },
+ "באר שבע": {
+  "cc": "il",
+  "display_name": "באר שבע, נפת באר שבע, מחוז הדרום, ישראל",
+  "lat": 31.2457442,
+  "lon": 34.7925181,
+  "osm_id": 1377264,
+  "resolved": "2026-09-21",
+  "type": "city"
+ },
+ "בריסל": {
+  "cc": "be",
+  "display_name": "בריסל, Brussel-Hoofdstad - Bruxelles-Capitale, Région de Bruxelles-Capitale - Brussels Hoofdstedelijk Gewest, בֶּלְגְיָה",
+  "lat": 50.8467372,
+  "lon": 4.352493,
+  "osm_id": 58274,
+  "resolved": "2026-09-21",
+  "type": "city"
+ },
+ "ברלין": {
+  "cc": "de",
+  "display_name": "ברלין, גרמניה",
+  "lat": 52.5173885,
+  "lon": 13.3951309,
+  "osm_id": 62422,
+  "resolved": "2026-09-21",
+  "type": "city"
+ },
+ "גבעות גומר": {
+  "cc": "il",
+  "display_name": "שמורת טבע גבעות גומר, מועצה אזורית לכיש, נפת אשקלון, מחוז הדרום, ישראל",
+  "lat": 31.4624901,
+  "lon": 34.8766716,
+  "osm_id": 1049096911,
+  "resolved": "2026-09-21",
+  "type": "protected_area"
+ },
+ "האג": {
+  "cc": "nl",
+  "display_name": "האג, Zuid-Holland, הולנד",
+  "lat": 52.0799838,
+  "lon": 4.3113461,
+  "osm_id": 192737,
+  "resolved": "2026-09-21",
+  "type": "city"
+ },
+ "טהראן": {
+  "cc": "ir",
+  "display_name": "טהרן, بخش مرکزی شهرستان تهران, شهرستان تهران, טהראן, איראן",
+  "lat": 35.6892523,
+  "lon": 51.3896004,
+  "osm_id": 6663864,
+  "resolved": "2026-09-21",
+  "type": "city"
+ },
+ "טרומסה": {
+  "cc": "no",
+  "display_name": "טרומסה, Troms, נורבגיה",
+  "lat": 69.6516345,
+  "lon": 18.9558585,
+  "osm_id": 407754,
+  "resolved": "2026-09-21",
+  "type": "municipality"
+ },
+ "לה פאס": {
+  "cc": "bo",
+  "display_name": "לה פאס, Provincia Pedro Domingo Murillo, La Paz, בוליביה",
+  "lat": -16.4955455,
+  "lon": -68.1336229,
+  "osm_id": 4499870,
+  "resolved": "2026-09-21",
+  "type": "city"
+ },
+ "לוד": {
+  "cc": "il",
+  "display_name": "לוד, נפת רמלה, מחוז המרכז, ישראל",
+  "lat": 31.9489012,
+  "lon": 34.8884857,
+  "osm_id": 1381532,
+  "resolved": "2026-09-21",
+  "type": "town"
+ },
+ "מדריד": {
+  "cc": "es",
+  "display_name": "מדריד, Comunidad de Madrid, ספרד",
+  "lat": 40.416782,
+  "lon": -3.703507,
+  "osm_id": 5326784,
+  "resolved": "2026-09-21",
+  "type": "city"
+ },
+ "סנטיאגו, צ'ילה": {
+  "cc": "cl",
+  "display_name": "סנטיאגו דה צ'ילה, Provincia de Santiago, Región Metropolitana de Santiago, 8320000, צ'ילה",
+  "lat": -33.4376995,
+  "lon": -70.6510671,
+  "osm_id": 50016356,
+  "resolved": "2026-09-21",
+  "type": "city"
+ },
+ "עזה": {
+  "cc": "ps",
+  "display_name": "עזה, נפה עזה, الأراضي الفلسطينية",
+  "lat": 31.5128679,
+  "lon": 34.4581358,
+  "osm_id": 10521584,
+  "resolved": "2026-09-21",
+  "type": "city"
+ },
+ "פאלו אלטו": {
+  "cc": "us",
+  "display_name": "פאלו אלטו, Santa Clara County, קליפורניה, ארצות הברית",
+  "lat": 37.4443293,
+  "lon": -122.1598465,
+  "osm_id": 1544955,
+  "resolved": "2026-09-21",
+  "type": "city"
+ },
+ "צנעא": {
+  "cc": "ye",
+  "display_name": "צנעא, مديرية التحرير, צנעא, תימן",
+  "lat": 15.3538569,
+  "lon": 44.2058841,
+  "osm_id": 258013552,
+  "resolved": "2026-09-21",
+  "type": "city"
+ },
+ "קייב": {
+  "cc": "ua",
+  "display_name": "קייב, אוקראינה",
+  "lat": 50.4500336,
+  "lon": 30.5241361,
+  "osm_id": 421866,
+  "resolved": "2026-09-21",
+  "type": "city"
+ },
+ "תל אביב-יפו": {
+  "cc": "il",
+  "display_name": "תל־אביב–יפו, נפת תל אביב, מחוז תל אביב, ישראל",
+  "lat": 32.0852997,
+  "lon": 34.7818064,
+  "osm_id": 1382494,
+  "resolved": "2026-09-21",
+  "type": "city"
+ }
+}
