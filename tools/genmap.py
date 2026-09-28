@@ -275,6 +275,8 @@ def _resolve_markers(spec, cache, fetch):
                 warnings.append(f'GAZETTEER: {m["place"]} -> {hit["display_name"]}, '
                                 f'not in the reviewed cache - check it is the place meant')
             lon, lat, cc, unverified = hit["lon"], hit["lat"], hit["cc"], ""
+            if hit.get("type") in places.WATER:
+                cc = ""
             label = m.get("label", m["place"])
         else:
             if not m.get("unverified"):
