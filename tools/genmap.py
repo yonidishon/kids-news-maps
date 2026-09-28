@@ -131,6 +131,11 @@ def _centroid(ring):
     return (cx / (3 * a), cy / (3 * a)), abs(a) / 2
 
 
+# The owner's editorial choice for this digest: an area Natural Earth names
+# Palestine is labelled Israel. Shading is unchanged.
+LABEL_AS = {"Palestine": "Israel"}
+
+
 def _box(cx, baseline, half, up, down):
     return (cx - half, baseline - up, cx + half, baseline + down)
 
@@ -150,8 +155,12 @@ def country_labels(features, extent, proj, placed, w, h):
     for m in placed:
         taken.append(_box(m["x"], m["y"] + 5, 6, 11, 1))
         taken.append(_box(m["x"] + m["dx"], m["y"] + m["dy"], len(m["label"]) * 4.6 + 2, 13, 4))
-    out = []
-    for f in features:
+    out, done = [], set()
+    # Largest first, so a name shared by two shaded areas sits on the bigger one.
+    for f in sorted(features, key=lambda f: -max(_centroid(_clip_ring(r, *extent))[1] for r in f["rings"])):
+        name = LABEL_AS.get(f["n"], f["n"])
+        if name in done:
+            continue
         best, best_area = None, 0.0
         for ring in f["rings"]:
             c, area = _centroid(_clip_ring(ring, *extent))
@@ -160,7 +169,7 @@ def country_labels(features, extent, proj, placed, w, h):
         if best is None:
             continue
         x0, y0 = proj(*best)
-        half = len(f["n"]) * 3.6 + 2
+        half = len(name) * 3.6 + 2
         x0 = min(max(x0, half + 3), w - half - 3)
         spots = [(x0 + dx, y0 + dy)
                  for dy in (0, 14, -14, 28, -28, 42, -42)
@@ -169,8 +178,9 @@ def country_labels(features, extent, proj, placed, w, h):
         clear = [p for p in spots if not any(_overlap(_box(*p, half, 10, 3), t) for t in taken)]
         x, y = (clear or spots or [(x0, y0)])[0]
         taken.append(_box(x, y, half, 10, 3))
+        done.add(name)
         out.append(f'<text class="ctry" x="{x:.1f}" y="{y:.1f}" text-anchor="middle" '
-                   f'style="{COUNTRY_LABEL_STYLE}">{html.escape(f["n"])}</text>')
+                   f'style="{COUNTRY_LABEL_STYLE}">{html.escape(name)}</text>')
     return "".join(out)
 
 

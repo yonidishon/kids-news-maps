@@ -297,3 +297,15 @@ def test_a_country_label_keeps_clear_of_city_markers():
     assert text == "Israel"
     for dx, dy in dots:
         assert math.hypot(float(x) - dx, float(y) - dy) >= 22
+
+
+def test_palestine_is_labelled_israel():
+    s = spec(extent="auto", highlight=["Palestine"], markers=[{"place": "ירושלים"}])
+    svg, _defs, _w = render(s, dict(CACHED), fetch=explode)
+    assert [t for _x, _y, t in _country_labels(svg)] == ["Israel"]
+
+
+def test_israel_and_palestine_together_carry_one_label():
+    s = spec(highlight=["Israel", "Palestine"])
+    svg, _defs, _w = render(s, dict(CACHED), fetch=explode)
+    assert [t for _x, _y, t in _country_labels(svg)] == ["Israel"]
