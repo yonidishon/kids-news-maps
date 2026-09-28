@@ -35,6 +35,8 @@ FINE = {
 # מוסקבה matches Moscow Oblast before Moscow, about 48 km out.
 COARSE = {"county", "state", "province", "region", "country", "sea"}
 ALLOWED = FINE | COARSE
+# Water, which no country outline contains: the containment check skips these.
+WATER = {"strait", "bay", "sea"}
 
 _last_call = 0.0
 

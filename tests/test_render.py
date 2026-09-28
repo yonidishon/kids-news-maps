@@ -254,3 +254,17 @@ def test_a_city_state_stays_a_dot():
     svg, _defs, warnings = render(s, dict(CACHED), fetch=explode)
     assert "סינגפור" in svg
     assert not any(w.startswith("COUNTRY:") for w in warnings)
+
+
+def test_a_strait_is_not_tested_against_the_country_that_names_it():
+    # A strait lies in water, off the coast of the country Nominatim names -
+    # the Strait of Hormuz point is 20 km outside Oman. Containment cannot
+    # judge water, so it is skipped and flagged instead of failing the map.
+    cache = dict(CACHED, **{"מצר הורמוז": {
+        "lon": 56.2028, "lat": 26.4494, "cc": "om", "osm_id": 9326284,
+        "type": "strait", "display_name": "تنگه هرمز, עומאן", "resolved": "2026-09-28"}})
+    s = spec(extent="auto", base="110m", size=[480, 260], highlight=[],
+             markers=[{"place": "מצר הורמוז"}])
+    svg, _defs, warnings = render(s, cache, fetch=explode)
+    assert "מצר הורמוז" in svg
+    assert any(w.startswith("UNTESTED: מצר הורמוז") for w in warnings)

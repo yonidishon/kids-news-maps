@@ -62,6 +62,15 @@
   "resolved": "2026-09-21",
   "type": "city"
  },
+ "ג'אלוד": {
+  "cc": "ps",
+  "display_name": "ג'אלוד, מועצה אזורית מטה בנימין, שטח B, הגדה המערבית, الأراضي الفلسطينية",
+  "lat": 32.0677079,
+  "lon": 35.3163928,
+  "osm_id": 334183566,
+  "resolved": "2026-09-28",
+  "type": "village"
+ },
  "גבעות גומר": {
   "cc": "il",
   "display_name": "שמורת טבע גבעות גומר, מועצה אזורית לכיש, נפת אשקלון, מחוז הדרום, ישראל",
@@ -98,6 +107,15 @@
   "resolved": "2026-09-21",
   "type": "municipality"
  },
+ "לאנגטאנג": {
+  "cc": "np",
+  "display_name": "लांगटांग, Gosaikunda-04, गोसाइँकुण्ड गाउँपालिका, रसुवा जिल्ला, बागमती प्रदेश, נפאל",
+  "lat": 28.2157564,
+  "lon": 85.5089756,
+  "osm_id": 976471702,
+  "resolved": "2026-09-28",
+  "type": "suburb"
+ },
  "לה פאס": {
   "cc": "bo",
   "display_name": "לה פאס, Provincia Pedro Domingo Murillo, La Paz, בוליביה",
@@ -125,6 +143,24 @@
   "resolved": "2026-09-21",
   "type": "city"
  },
+ "מצר הורמוז": {
+  "cc": "om",
+  "display_name": "تنگه هرمز, עומאן",
+  "lat": 26.4494061,
+  "lon": 56.2027702,
+  "osm_id": 9326284,
+  "resolved": "2026-09-28",
+  "type": "strait"
+ },
+ "סולאווסי": {
+  "cc": "id",
+  "display_name": "Sulawesi, אינדונזיה",
+  "lat": -1.9758004,
+  "lon": 120.2948856,
+  "osm_id": 3986124,
+  "resolved": "2026-09-28",
+  "type": "island"
+ },
  "סנטיאגו, צ'ילה": {
   "cc": "cl",
   "display_name": "סנטיאגו דה צ'ילה, Provincia de Santiago, Región Metropolitana de Santiago, 8320000, צ'ילה",
@@ -151,6 +187,15 @@
   "osm_id": 1544955,
   "resolved": "2026-09-21",
   "type": "city"
+ },
+ "פארק לאומי לאסן": {
+  "cc": "us",
+  "display_name": "Lassen Volcanic National Park, Shasta County, קליפורניה, ארצות הברית",
+  "lat": 40.4937823,
+  "lon": -121.4044582,
+  "osm_id": 6207158,
+  "resolved": "2026-09-28",
+  "type": "nature_reserve"
  },
  "צנעא": {
   "cc": "ye",
