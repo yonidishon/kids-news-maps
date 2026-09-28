@@ -13,7 +13,8 @@ import re
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO))
 from tools import places
 from tools.genmap import CheckFailed, SpecError, render
 
@@ -89,6 +90,12 @@ def main(argv=None):
     ap.add_argument("--out", required=True)
     ap.add_argument("--replace", action="store_true")
     a = ap.parse_args(argv)
+    # A digest page carries full article text, and the running copy of this
+    # repo is public: a page left in the checkout is one commit from published.
+    if Path(a.out).resolve().is_relative_to(REPO):
+        print(f"error: --out {a.out} is inside the repo; write the page outside the repo, "
+              f"e.g. /tmp", file=sys.stderr)
+        return 1
 
     page = Path(a.page).read_text(encoding="utf-8")
     entries = json.loads(Path(a.entries).read_text(encoding="utf-8"))

@@ -268,3 +268,32 @@ def test_a_strait_is_not_tested_against_the_country_that_names_it():
     svg, _defs, warnings = render(s, cache, fetch=explode)
     assert "מצר הורמוז" in svg
     assert any(w.startswith("UNTESTED: מצר הורמוז") for w in warnings)
+
+
+def _country_labels(svg):
+    import re
+    return re.findall(r'<text class="ctry" x="([\d.]+)" y="([\d.]+)"[^>]*>([^<]*)</text>', svg)
+
+
+def test_a_highlighted_country_is_labelled_in_english():
+    s = spec(extent="auto", base="110m", size=[480, 260], highlight=["Yemen"],
+             markers=[{"place": "צנעא"}])
+    svg, _defs, _w = render(s, dict(CACHED), fetch=explode)
+    assert [t for _x, _y, t in _country_labels(svg)] == ["Yemen"]
+
+
+def test_a_country_named_as_a_marker_is_labelled_too():
+    s = spec(extent="auto", highlight=[], markers=[{"place": "סוריה"}])
+    svg, _defs, _w = render(s, dict(CACHED), fetch=explode)
+    assert [t for _x, _y, t in _country_labels(svg)] == ["Syria"]
+
+
+def test_a_country_label_keeps_clear_of_city_markers():
+    # Israel's centre falls between Jerusalem and Beer Sheva on this map.
+    svg, _defs, _w = render(spec(), dict(CACHED), fetch=explode)
+    import re
+    dots = [(float(x), float(y)) for x, y in re.findall(r'<circle cx="([\d.]+)" cy="([\d.]+)"', svg)]
+    (x, y, text), = _country_labels(svg)
+    assert text == "Israel"
+    for dx, dy in dots:
+        assert math.hypot(float(x) - dx, float(y) - dy) >= 22
