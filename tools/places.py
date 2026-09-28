@@ -1,17 +1,24 @@
 """Turn a Hebrew place name into a coordinate.
 
 The committed cache at data/places.json is the source of truth. A name that is
-already in it never causes a network call. A miss goes to Nominatim once, and an
-accepted result is written back so it arrives in a reviewable diff.
+already in it never causes a network call. A miss goes to the vendored GeoNames
+gazetteer next, which covers settlements only and needs no network. A miss there
+goes to Nominatim once, and an accepted result is written back so it arrives in a
+reviewable diff. Nominatim being unreachable, as in the cloud sandbox, is a miss.
 """
 import json
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import date
+from functools import lru_cache
 from pathlib import Path
 
-CACHE = Path(__file__).resolve().parent.parent / "data" / "places.json"
+DATA = Path(__file__).resolve().parent.parent / "data"
+CACHE = DATA / "places.json"
+GAZETTEER = DATA / "cities15000-he.json"
+COUNTRY_NAMES = DATA / "countries-he.json"
 UA = "kids-news-map-tool/0.1 (contact yonidishon@gmail.com)"
 ENDPOINT = "https://nominatim.openstreetmap.org/search"
 MIN_INTERVAL = 1.2
@@ -43,6 +50,49 @@ def save_cache(cache, path=CACHE):
     Path(path).write_text(text + "\n", encoding="utf-8")
 
 
+def index_gazetteer(rows):
+    """Hebrew name -> entry. A name shared across places goes to the most populous:
+    לונדון is London, England, not London, Ontario."""
+    index = {}
+    for gid, name, lon, lat, cc, pop, he_names in sorted(rows, key=lambda r: r[5]):
+        entry = {"lon": lon, "lat": lat, "cc": cc, "geonames_id": gid, "type": "city",
+                 "display_name": f"{name}, {cc}", "source": "geonames"}
+        for he in he_names:
+            index[he] = entry
+    return index
+
+
+@lru_cache(maxsize=None)
+def default_gazetteer():
+    if not GAZETTEER.exists():
+        return {}
+    return index_gazetteer(json.loads(GAZETTEER.read_text(encoding="utf-8"))["places"])
+
+
+@lru_cache(maxsize=None)
+def country_names():
+    if not COUNTRY_NAMES.exists():
+        return {}
+    return json.loads(COUNTRY_NAMES.read_text(encoding="utf-8"))["names"]
+
+
+def country_for(name, gazetteer=None):
+    """The Natural Earth English name if `name` is a country, else None.
+
+    A country is an area, not a point, so it is shaded rather than dotted. The
+    city gazetteer would otherwise put סוריה on Soria, Spain. A city-state, whose
+    gazetteer city lies in the country of the same name - סינגפור - stays a dot.
+    """
+    c = country_names().get(name)
+    if c is None:
+        return None
+    gazetteer = default_gazetteer() if gazetteer is None else gazetteer
+    city = gazetteer.get(name)
+    if city and c["iso"] and city["cc"] == c["iso"].lower():
+        return None
+    return c["n"]
+
+
 def nominatim(name):
     """One rate-limited query. Returns the raw hit list."""
     global _last_call
@@ -72,11 +122,18 @@ def pick(hits):
     return coarse
 
 
-def resolve(name, cache, fetch=nominatim, today=None):
-    """Cache first, one query on a miss. Returns None rather than guessing."""
+def resolve(name, cache, fetch=nominatim, today=None, gazetteer=None):
+    """Cache, then gazetteer, then one query. Returns None rather than guessing."""
     if name in cache:
         return cache[name]
-    hit = pick(fetch(name))
+    gazetteer = default_gazetteer() if gazetteer is None else gazetteer
+    if name in gazetteer:
+        return gazetteer[name]
+    try:
+        hits = fetch(name)
+    except (urllib.error.URLError, OSError):
+        return None
+    hit = pick(hits)
     if hit is None:
         return None
     entry = {

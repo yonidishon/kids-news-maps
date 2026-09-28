@@ -244,8 +244,11 @@ def auto_extent(points, w, h, countries, pad=0.18, min_span=1.2):
 
 
 def _resolve_markers(spec, cache, fetch):
-    """Resolve every marker to a coordinate. Returns (resolved, warnings)."""
-    resolved, warnings = [], []
+    """Resolve every marker to a coordinate.
+
+    Returns (resolved, warnings, countries): a marker naming a country is not
+    placed but returned in `countries`, to be highlighted instead."""
+    resolved, warnings, countries = [], [], []
     for m in spec["markers"]:
         if "anchor" in m:
             raise SpecError(
@@ -253,6 +256,11 @@ def _resolve_markers(spec, cache, fetch):
                 f"Labels are always centred: under RTL, start and end flip and "
                 f"the label lands on its own marker. Use dx and dy instead."
             )
+        if "place" in m and (country := places.country_for(m["place"])):
+            countries.append(country)
+            warnings.append(f'COUNTRY: {m["place"]} is a country, shaded as {country} '
+                            f'instead of marked with a dot')
+            continue
         if "place" in m:
             hit = places.resolve(m["place"], cache, fetch=fetch)
             if hit is None:
@@ -263,6 +271,9 @@ def _resolve_markers(spec, cache, fetch):
                     f'COARSE: {m["place"]} resolved to a {hit["type"]} '
                     f'({hit["display_name"]}), whose centre can be far from the '
                     f'place itself - check it')
+            if hit.get("source") == "geonames":
+                warnings.append(f'GAZETTEER: {m["place"]} -> {hit["display_name"]}, '
+                                f'not in the reviewed cache - check it is the place meant')
             lon, lat, cc, unverified = hit["lon"], hit["lat"], hit["cc"], ""
             label = m.get("label", m["place"])
         else:
@@ -277,7 +288,14 @@ def _resolve_markers(spec, cache, fetch):
         resolved.append({"label": label, "lon": lon, "lat": lat,
                          "cc": cc, "unverified": unverified,
                          "dx": m.get("dx", 0), "dy": m.get("dy", -13)})
-    return resolved, warnings
+    return resolved, warnings, countries
+
+
+def _largest_ring(feature):
+    """The main landmass: France without French Guiana, the US without Alaska."""
+    def area(r):
+        return abs(sum(a[0] * b[1] - b[0] * a[1] for a, b in zip(r, r[1:] + r[:1])))
+    return max(feature["rings"], key=area)
 
 
 def render(spec, cache, fetch=None):
@@ -286,16 +304,19 @@ def render(spec, cache, fetch=None):
     if base not in TOL:
         raise SpecError(f"unknown base {base!r}, expected one of {sorted(TOL)}")
     w, h = spec["size"]
-    resolved, warnings = _resolve_markers(spec, cache, fetch)
-    if not resolved:
+    resolved, warnings, from_markers = _resolve_markers(spec, cache, fetch)
+    if not resolved and not from_markers:
         raise CheckFailed(["no marker resolved; nothing worth drawing"])
+    highlight = list(spec.get("highlight", [])) + from_markers
 
     countries = load_countries("110m" if base in ("110m", "world") else "50m")
     if base == "world":
         extent = WORLD_EXTENT
     elif spec.get("extent", "auto") == "auto":
-        extent = auto_extent([(r["lon"], r["lat"]) for r in resolved], w, h,
-                             load_countries("50m"))
+        fifty = load_countries("50m")
+        pts = [(r["lon"], r["lat"]) for r in resolved]
+        pts += [tuple(p) for f in fifty if f["n"] in from_markers for p in _largest_ring(f)]
+        extent = auto_extent(pts, w, h, fifty)
     else:
         extent = tuple(spec["extent"])
 
@@ -340,7 +361,7 @@ def render(spec, cache, fetch=None):
                        for r in f["rings"] for p in r)]
         body = f'<path class="land faint" d="{path_for(near, proj, TOL[base], extent)}"/>'
 
-    hi = [f for f in countries if f["n"] in spec.get("highlight", [])]
+    hi = [f for f in countries if f["n"] in highlight]
     if hi:
         body += f'<path class="hi" d="{path_for(hi, proj, TOL[base])}"/>'
     for m in placed:
