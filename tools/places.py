@@ -78,6 +78,31 @@ def country_names():
     return json.loads(COUNTRY_NAMES.read_text(encoding="utf-8"))["names"]
 
 
+# Everyday Hebrew names that Natural Earth's Hebrew list lacks, mapped to the
+# name it uses. England, Scotland and Wales shade the whole United Kingdom:
+# the outlines stop at country level.
+COUNTRY_ALIASES = {
+    "בריטניה": "הממלכה המאוחדת",
+    "אנגליה": "הממלכה המאוחדת",
+    "סקוטלנד": "הממלכה המאוחדת",
+    "וויילס": "הממלכה המאוחדת",
+    'ארה"ב': "ארצות הברית",
+    "ארה״ב": "ארצות הברית",
+    "ארצות־הברית": "ארצות הברית",
+    "סין": "הרפובליקה העממית של סין",
+    "דרום קוריאה": "קוריאה הדרומית",
+    "צפון קוריאה": "קוריאה הצפונית",
+    "האמירויות": "איחוד האמירויות הערביות",
+    "איחוד האמירויות": "איחוד האמירויות הערביות",
+    "סעודיה": "ערב הסעודית",
+    "שוויץ": "שווייץ",
+    "הרפובליקה הצ'כית": "צ'כיה",
+    "מקדוניה": "מקדוניה הצפונית",
+    "בוסניה": "בוסניה והרצגובינה",
+    "הוותיקן": "קריית הוותיקן",
+}
+
+
 def country_for(name, gazetteer=None):
     """The Natural Earth English name if `name` is a country, else None.
 
@@ -85,7 +110,7 @@ def country_for(name, gazetteer=None):
     city gazetteer would otherwise put סוריה on Soria, Spain. A city-state, whose
     gazetteer city lies in the country of the same name - סינגפור - stays a dot.
     """
-    c = country_names().get(name)
+    c = country_names().get(COUNTRY_ALIASES.get(name, name))
     if c is None:
         return None
     gazetteer = default_gazetteer() if gazetteer is None else gazetteer

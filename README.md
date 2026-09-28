@@ -25,7 +25,10 @@ Standard library only. No install step. `python3 tools/genmap.py spec.json --out
 
 A marker naming a country is shaded as a highlight, never dotted: the city
 gazetteer would put `סוריה` on Soria, Spain. A city-state such as `סינגפור`
-stays a dot. Anything else resolves from the committed cache, then the offline
+stays a dot. Everyday names that Natural Earth's Hebrew list lacks - `סין`,
+`בריטניה`, `ארה"ב` - are mapped to its names in `COUNTRY_ALIASES` in
+`tools/places.py`; `אנגליה`, `סקוטלנד` and `וויילס` shade the whole United
+Kingdom. Anything else resolves from the committed cache, then the offline
 gazetteer (settlements only), then Nominatim. The cloud sandbox cannot reach
 Nominatim, so there a place in neither file is dropped from the map and
 reported. Nature reserves, straits and other non-settlements reach the map only
