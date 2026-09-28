@@ -180,3 +180,15 @@ def test_a_city_is_not_a_country():
 def test_the_contested_natural_earth_name_is_not_a_lookup_key():
     # Natural Earth gives Palestine's Hebrew name as ארץ ישראל. It is not used.
     assert country_for("ארץ ישראל", gazetteer={}) is None
+
+
+@pytest.mark.parametrize("name,country", [
+    ("בריטניה", "United Kingdom"),
+    ('ארה"ב', "United States of America"),
+    ("ארה״ב", "United States of America"),
+    ("סין", "China"),
+    ("דרום קוריאה", "South Korea"),
+    ("שוויץ", "Switzerland"),
+])
+def test_an_everyday_hebrew_country_name_is_recognised(name, country):
+    assert country_for(name, gazetteer={}) == country

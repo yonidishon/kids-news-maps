@@ -89,6 +89,33 @@
   "resolved": "2026-09-21",
   "type": "city"
  },
+ "וושינגטון": {
+  "cc": "us",
+  "display_name": "וושינגטון, District of Columbia, ארצות הברית",
+  "lat": 38.8950982,
+  "lon": -77.0363849,
+  "osm_id": 5396194,
+  "resolved": "2026-09-28",
+  "type": "city"
+ },
+ "וושינגטון די.סי.": {
+  "cc": "us",
+  "display_name": "וושינגטון, District of Columbia, ארצות הברית",
+  "lat": 38.8950982,
+  "lon": -77.0363849,
+  "osm_id": 5396194,
+  "resolved": "2026-09-28",
+  "type": "city"
+ },
+ "וושינגטון הבירה": {
+  "cc": "us",
+  "display_name": "וושינגטון, District of Columbia, ארצות הברית",
+  "lat": 38.8950982,
+  "lon": -77.0363849,
+  "osm_id": 5396194,
+  "resolved": "2026-09-28",
+  "type": "city"
+ },
  "טהראן": {
   "cc": "ir",
   "display_name": "טהרן, بخش مرکزی شهرستان تهران, شهرستان تهران, טהראן, איראן",
