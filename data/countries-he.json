@@ -1,0 +1,969 @@
+{
+"names": {
+"אוגנדה": {
+"iso": "UG",
+"n": "Uganda"
+},
+"אוזבקיסטן": {
+"iso": "UZ",
+"n": "Uzbekistan"
+},
+"אולנד": {
+"iso": "AX",
+"n": "Åland"
+},
+"אוסטריה": {
+"iso": "AT",
+"n": "Austria"
+},
+"אוסטרליה": {
+"iso": "AU",
+"n": "Australia"
+},
+"אוקראינה": {
+"iso": "UA",
+"n": "Ukraine"
+},
+"אורוגוואי": {
+"iso": "UY",
+"n": "Uruguay"
+},
+"אזרבייג'ן": {
+"iso": "AZ",
+"n": "Azerbaijan"
+},
+"איחוד האמירויות הערביות": {
+"iso": "AE",
+"n": "United Arab Emirates"
+},
+"איטליה": {
+"iso": "IT",
+"n": "Italy"
+},
+"איי אשמור וקרטייה": {
+"iso": "AU",
+"n": "Ashmore and Cartier Is."
+},
+"איי בהאמה": {
+"iso": "BS",
+"n": "Bahamas"
+},
+"איי ג'ורג'יה הדרומית ואיי סנדוויץ' הדרומיים": {
+"iso": "GS",
+"n": "S. Geo. and the Is."
+},
+"איי הבתולה הבריטיים": {
+"iso": "VG",
+"n": "British Virgin Is."
+},
+"איי הבתולה של ארצות הברית": {
+"iso": "VI",
+"n": "U.S. Virgin Is."
+},
+"איי טרקס וקייקוס": {
+"iso": "TC",
+"n": "Turks and Caicos Is."
+},
+"איי מריאנה הצפוניים": {
+"iso": "MP",
+"n": "N. Mariana Is."
+},
+"איי מרשל": {
+"iso": "MH",
+"n": "Marshall Is."
+},
+"איי פארו": {
+"iso": "FO",
+"n": "Faeroe Is."
+},
+"איי פוקלנד": {
+"iso": "FK",
+"n": "Falkland Is."
+},
+"איי קוק": {
+"iso": "CK",
+"n": "Cook Is."
+},
+"איי קיימן": {
+"iso": "KY",
+"n": "Cayman Is."
+},
+"איי שלמה": {
+"iso": "SB",
+"n": "Solomon Is."
+},
+"אינדונזיה": {
+"iso": "ID",
+"n": "Indonesia"
+},
+"איסלנד": {
+"iso": "IS",
+"n": "Iceland"
+},
+"איראן": {
+"iso": "IR",
+"n": "Iran"
+},
+"אירלנד": {
+"iso": "IE",
+"n": "Ireland"
+},
+"אל סלוודור": {
+"iso": "SV",
+"n": "El Salvador"
+},
+"אלבניה": {
+"iso": "AL",
+"n": "Albania"
+},
+"אלג'יריה": {
+"iso": "DZ",
+"n": "Algeria"
+},
+"אנגווילה": {
+"iso": "AI",
+"n": "Anguilla"
+},
+"אנגולה": {
+"iso": "AO",
+"n": "Angola"
+},
+"אנדורה": {
+"iso": "AD",
+"n": "Andorra"
+},
+"אנטארקטיקה": {
+"iso": "AQ",
+"n": "Antarctica"
+},
+"אנטיגואה וברבודה": {
+"iso": "AG",
+"n": "Antigua and Barb."
+},
+"אסוואטיני": {
+"iso": "SZ",
+"n": "eSwatini"
+},
+"אסטוניה": {
+"iso": "EE",
+"n": "Estonia"
+},
+"אפגניסטן": {
+"iso": "AF",
+"n": "Afghanistan"
+},
+"אקוודור": {
+"iso": "EC",
+"n": "Ecuador"
+},
+"ארגנטינה": {
+"iso": "AR",
+"n": "Argentina"
+},
+"ארובה": {
+"iso": "AW",
+"n": "Aruba"
+},
+"אריתריאה": {
+"iso": "ER",
+"n": "Eritrea"
+},
+"ארמניה": {
+"iso": "AM",
+"n": "Armenia"
+},
+"ארצות הברית": {
+"iso": "US",
+"n": "United States of America"
+},
+"אתיופיה": {
+"iso": "ET",
+"n": "Ethiopia"
+},
+"בהוטן": {
+"iso": "BT",
+"n": "Bhutan"
+},
+"בוטסואנה": {
+"iso": "BW",
+"n": "Botswana"
+},
+"בולגריה": {
+"iso": "BG",
+"n": "Bulgaria"
+},
+"בוליביה": {
+"iso": "BO",
+"n": "Bolivia"
+},
+"בוסניה והרצגובינה": {
+"iso": "BA",
+"n": "Bosnia and Herz."
+},
+"בורונדי": {
+"iso": "BI",
+"n": "Burundi"
+},
+"בורקינה פאסו": {
+"iso": "BF",
+"n": "Burkina Faso"
+},
+"בחריין": {
+"iso": "BH",
+"n": "Bahrain"
+},
+"בלארוס": {
+"iso": "BY",
+"n": "Belarus"
+},
+"בלגיה": {
+"iso": "BE",
+"n": "Belgium"
+},
+"בליז": {
+"iso": "BZ",
+"n": "Belize"
+},
+"בנגלדש": {
+"iso": "BD",
+"n": "Bangladesh"
+},
+"בנין": {
+"iso": "BJ",
+"n": "Benin"
+},
+"ברבדוס": {
+"iso": "BB",
+"n": "Barbados"
+},
+"ברוניי": {
+"iso": "BN",
+"n": "Brunei"
+},
+"ברזיל": {
+"iso": "BR",
+"n": "Brazil"
+},
+"ברמודה": {
+"iso": "BM",
+"n": "Bermuda"
+},
+"ג'יבוטי": {
+"iso": "DJ",
+"n": "Djibouti"
+},
+"ג'מייקה": {
+"iso": "JM",
+"n": "Jamaica"
+},
+"ג'רזי": {
+"iso": "JE",
+"n": "Jersey"
+},
+"גאורגיה": {
+"iso": "GE",
+"n": "Georgia"
+},
+"גאנה": {
+"iso": "GH",
+"n": "Ghana"
+},
+"גבון": {
+"iso": "GA",
+"n": "Gabon"
+},
+"גואטמלה": {
+"iso": "GT",
+"n": "Guatemala"
+},
+"גואם": {
+"iso": "GU",
+"n": "Guam"
+},
+"גיאנה": {
+"iso": "GY",
+"n": "Guyana"
+},
+"גינאה": {
+"iso": "GN",
+"n": "Guinea"
+},
+"גינאה ביסאו": {
+"iso": "GW",
+"n": "Guinea-Bissau"
+},
+"גינאה המשוונית": {
+"iso": "GQ",
+"n": "Eq. Guinea"
+},
+"גמביה": {
+"iso": "GM",
+"n": "Gambia"
+},
+"גרינלנד": {
+"iso": "GL",
+"n": "Greenland"
+},
+"גרמניה": {
+"iso": "DE",
+"n": "Germany"
+},
+"גרנדה": {
+"iso": "GD",
+"n": "Grenada"
+},
+"גרנזי": {
+"iso": "GG",
+"n": "Guernsey"
+},
+"דומיניקה": {
+"iso": "DM",
+"n": "Dominica"
+},
+"דנמרק": {
+"iso": "DK",
+"n": "Denmark"
+},
+"דרום אפריקה": {
+"iso": "ZA",
+"n": "South Africa"
+},
+"דרום סודאן": {
+"iso": "SS",
+"n": "S. Sudan"
+},
+"האי הרד ואיי מקדונלד": {
+"iso": "HM",
+"n": "Heard I. and McDonald Is."
+},
+"האי מאן": {
+"iso": "IM",
+"n": "Isle of Man"
+},
+"האיטי": {
+"iso": "HT",
+"n": "Haiti"
+},
+"האיים המלדיביים": {
+"iso": "MV",
+"n": "Maldives"
+},
+"הארצות הדרומיות והאנטארקטיות של צרפת": {
+"iso": "TF",
+"n": "Fr. S. Antarctic Lands"
+},
+"הודו": {
+"iso": "IN",
+"n": "India"
+},
+"הולנד": {
+"iso": "NL",
+"n": "Netherlands"
+},
+"הונג קונג": {
+"iso": "HK",
+"n": "Hong Kong"
+},
+"הונגריה": {
+"iso": "HU",
+"n": "Hungary"
+},
+"הונדורס": {
+"iso": "HN",
+"n": "Honduras"
+},
+"הטריטוריה הבריטית באוקיינוס ההודי": {
+"iso": "IO",
+"n": "Br. Indian Ocean Ter."
+},
+"הממלכה המאוחדת": {
+"iso": "GB",
+"n": "United Kingdom"
+},
+"הפיליפינים": {
+"iso": "PH",
+"n": "Philippines"
+},
+"הרפובליקה הדומיניקנית": {
+"iso": "DO",
+"n": "Dominican Rep."
+},
+"הרפובליקה הדמוקרטית של קונגו": {
+"iso": "CD",
+"n": "Dem. Rep. Congo"
+},
+"הרפובליקה הטורקית של צפון קפריסין": {
+"iso": "",
+"n": "N. Cyprus"
+},
+"הרפובליקה המרכז-אפריקאית": {
+"iso": "CF",
+"n": "Central African Rep."
+},
+"הרפובליקה העממית של סין": {
+"iso": "CN",
+"n": "China"
+},
+"הרפובליקה של קונגו": {
+"iso": "CG",
+"n": "Congo"
+},
+"ואליס ופוטונה": {
+"iso": "WF",
+"n": "Wallis and Futuna Is."
+},
+"וייטנאם": {
+"iso": "VN",
+"n": "Vietnam"
+},
+"ונואטו": {
+"iso": "VU",
+"n": "Vanuatu"
+},
+"ונצואלה": {
+"iso": "VE",
+"n": "Venezuela"
+},
+"זימבבואה": {
+"iso": "ZW",
+"n": "Zimbabwe"
+},
+"זמביה": {
+"iso": "ZM",
+"n": "Zambia"
+},
+"חוף השנהב": {
+"iso": "CI",
+"n": "Côte d'Ivoire"
+},
+"טאיוואן": {
+"iso": "TW",
+"n": "Taiwan"
+},
+"טג׳יקיסטן": {
+"iso": "TJ",
+"n": "Tajikistan"
+},
+"טובאלו": {
+"iso": "TV",
+"n": "Tuvalu"
+},
+"טוגו": {
+"iso": "TG",
+"n": "Togo"
+},
+"טונגה": {
+"iso": "TO",
+"n": "Tonga"
+},
+"טורקיה": {
+"iso": "TR",
+"n": "Turkey"
+},
+"טורקמניסטן": {
+"iso": "TM",
+"n": "Turkmenistan"
+},
+"טנזניה": {
+"iso": "TZ",
+"n": "Tanzania"
+},
+"טריטוריה של האוקיינוס ההודי": {
+"iso": "AU",
+"n": "Indian Ocean Ter."
+},
+"טרינידד וטובגו": {
+"iso": "TT",
+"n": "Trinidad and Tobago"
+},
+"יוון": {
+"iso": "GR",
+"n": "Greece"
+},
+"יפן": {
+"iso": "JP",
+"n": "Japan"
+},
+"ירדן": {
+"iso": "JO",
+"n": "Jordan"
+},
+"ישראל": {
+"iso": "IL",
+"n": "Israel"
+},
+"כווית": {
+"iso": "KW",
+"n": "Kuwait"
+},
+"כף ורדה": {
+"iso": "CV",
+"n": "Cabo Verde"
+},
+"לאוס": {
+"iso": "LA",
+"n": "Laos"
+},
+"לבנון": {
+"iso": "LB",
+"n": "Lebanon"
+},
+"לוב": {
+"iso": "LY",
+"n": "Libya"
+},
+"לוקסמבורג": {
+"iso": "LU",
+"n": "Luxembourg"
+},
+"לטביה": {
+"iso": "LV",
+"n": "Latvia"
+},
+"ליבריה": {
+"iso": "LR",
+"n": "Liberia"
+},
+"ליטא": {
+"iso": "LT",
+"n": "Lithuania"
+},
+"ליכטנשטיין": {
+"iso": "LI",
+"n": "Liechtenstein"
+},
+"לסוטו": {
+"iso": "LS",
+"n": "Lesotho"
+},
+"מאוריטניה": {
+"iso": "MR",
+"n": "Mauritania"
+},
+"מאוריציוס": {
+"iso": "MU",
+"n": "Mauritius"
+},
+"מאלי": {
+"iso": "ML",
+"n": "Mali"
+},
+"מדגסקר": {
+"iso": "MG",
+"n": "Madagascar"
+},
+"מוזמביק": {
+"iso": "MZ",
+"n": "Mozambique"
+},
+"מולדובה": {
+"iso": "MD",
+"n": "Moldova"
+},
+"מונגוליה": {
+"iso": "MN",
+"n": "Mongolia"
+},
+"מונטנגרו": {
+"iso": "ME",
+"n": "Montenegro"
+},
+"מונטסראט": {
+"iso": "MS",
+"n": "Montserrat"
+},
+"מונקו": {
+"iso": "MC",
+"n": "Monaco"
+},
+"מזרח טימור": {
+"iso": "TL",
+"n": "Timor-Leste"
+},
+"מיאנמר": {
+"iso": "MM",
+"n": "Myanmar"
+},
+"מיקרונזיה": {
+"iso": "FM",
+"n": "Micronesia"
+},
+"מלאווי": {
+"iso": "MW",
+"n": "Malawi"
+},
+"מלזיה": {
+"iso": "MY",
+"n": "Malaysia"
+},
+"מלטה": {
+"iso": "MT",
+"n": "Malta"
+},
+"מצרים": {
+"iso": "EG",
+"n": "Egypt"
+},
+"מקאו": {
+"iso": "MO",
+"n": "Macao"
+},
+"מקדוניה הצפונית": {
+"iso": "MK",
+"n": "North Macedonia"
+},
+"מקסיקו": {
+"iso": "MX",
+"n": "Mexico"
+},
+"מרוקו": {
+"iso": "MA",
+"n": "Morocco"
+},
+"נאורו": {
+"iso": "NR",
+"n": "Nauru"
+},
+"נורווגיה": {
+"iso": "NO",
+"n": "Norway"
+},
+"נורפוק": {
+"iso": "NF",
+"n": "Norfolk Island"
+},
+"ניגריה": {
+"iso": "NG",
+"n": "Nigeria"
+},
+"ניו זילנד": {
+"iso": "NZ",
+"n": "New Zealand"
+},
+"ניואה": {
+"iso": "NU",
+"n": "Niue"
+},
+"ניז'ר": {
+"iso": "NE",
+"n": "Niger"
+},
+"ניקרגואה": {
+"iso": "NI",
+"n": "Nicaragua"
+},
+"נמיביה": {
+"iso": "NA",
+"n": "Namibia"
+},
+"נפאל": {
+"iso": "NP",
+"n": "Nepal"
+},
+"סאו טומה ופרינסיפה": {
+"iso": "ST",
+"n": "São Tomé and Principe"
+},
+"סהרה המערבית": {
+"iso": "EH",
+"n": "W. Sahara"
+},
+"סודאן": {
+"iso": "SD",
+"n": "Sudan"
+},
+"סומליה": {
+"iso": "SO",
+"n": "Somalia"
+},
+"סומלילנד": {
+"iso": "",
+"n": "Somaliland"
+},
+"סוריה": {
+"iso": "SY",
+"n": "Syria"
+},
+"סורינאם": {
+"iso": "SR",
+"n": "Suriname"
+},
+"סיירה לאון": {
+"iso": "SL",
+"n": "Sierra Leone"
+},
+"סיישל": {
+"iso": "SC",
+"n": "Seychelles"
+},
+"סינגפור": {
+"iso": "SG",
+"n": "Singapore"
+},
+"סלובניה": {
+"iso": "SI",
+"n": "Slovenia"
+},
+"סלובקיה": {
+"iso": "SK",
+"n": "Slovakia"
+},
+"סמואה": {
+"iso": "WS",
+"n": "Samoa"
+},
+"סמואה האמריקנית": {
+"iso": "AS",
+"n": "American Samoa"
+},
+"סן ברתלמי": {
+"iso": "BL",
+"n": "St-Barthélemy"
+},
+"סן מרטן": {
+"iso": "MF",
+"n": "St-Martin"
+},
+"סן מרינו": {
+"iso": "SM",
+"n": "San Marino"
+},
+"סן-פייר ומיקלון": {
+"iso": "PM",
+"n": "St. Pierre and Miquelon"
+},
+"סנגל": {
+"iso": "SN",
+"n": "Senegal"
+},
+"סנט הלנה": {
+"iso": "SH",
+"n": "Saint Helena"
+},
+"סנט וינסנט והגרנדינים": {
+"iso": "VC",
+"n": "St. Vin. and Gren."
+},
+"סנט לוסיה": {
+"iso": "LC",
+"n": "Saint Lucia"
+},
+"סנט מארטן": {
+"iso": "SX",
+"n": "Sint Maarten"
+},
+"סנט קיטס ונוויס": {
+"iso": "KN",
+"n": "St. Kitts and Nevis"
+},
+"ספרד": {
+"iso": "ES",
+"n": "Spain"
+},
+"סרביה": {
+"iso": "RS",
+"n": "Serbia"
+},
+"סרי לנקה": {
+"iso": "LK",
+"n": "Sri Lanka"
+},
+"עומאן": {
+"iso": "OM",
+"n": "Oman"
+},
+"עיראק": {
+"iso": "IQ",
+"n": "Iraq"
+},
+"ערב הסעודית": {
+"iso": "SA",
+"n": "Saudi Arabia"
+},
+"פוארטו ריקו": {
+"iso": "PR",
+"n": "Puerto Rico"
+},
+"פולין": {
+"iso": "PL",
+"n": "Poland"
+},
+"פולינזיה הצרפתית": {
+"iso": "PF",
+"n": "Fr. Polynesia"
+},
+"פורטוגל": {
+"iso": "PT",
+"n": "Portugal"
+},
+"פיג'י": {
+"iso": "FJ",
+"n": "Fiji"
+},
+"פיטקרן": {
+"iso": "PN",
+"n": "Pitcairn Is."
+},
+"פינלנד": {
+"iso": "FI",
+"n": "Finland"
+},
+"פלאו": {
+"iso": "PW",
+"n": "Palau"
+},
+"פנמה": {
+"iso": "PA",
+"n": "Panama"
+},
+"פפואה גינאה החדשה": {
+"iso": "PG",
+"n": "Papua New Guinea"
+},
+"פקיסטן": {
+"iso": "PK",
+"n": "Pakistan"
+},
+"פרגוואי": {
+"iso": "PY",
+"n": "Paraguay"
+},
+"פרו": {
+"iso": "PE",
+"n": "Peru"
+},
+"צ'אד": {
+"iso": "TD",
+"n": "Chad"
+},
+"צ'ילה": {
+"iso": "CL",
+"n": "Chile"
+},
+"צ'כיה": {
+"iso": "CZ",
+"n": "Czechia"
+},
+"צרפת": {
+"iso": "FR",
+"n": "France"
+},
+"קובה": {
+"iso": "CU",
+"n": "Cuba"
+},
+"קולומביה": {
+"iso": "CO",
+"n": "Colombia"
+},
+"קומורו": {
+"iso": "KM",
+"n": "Comoros"
+},
+"קוסובו": {
+"iso": "XK",
+"n": "Kosovo"
+},
+"קוסטה ריקה": {
+"iso": "CR",
+"n": "Costa Rica"
+},
+"קוראסאו": {
+"iso": "CW",
+"n": "Curaçao"
+},
+"קוריאה הדרומית": {
+"iso": "KR",
+"n": "South Korea"
+},
+"קוריאה הצפונית": {
+"iso": "KP",
+"n": "North Korea"
+},
+"קזחסטן": {
+"iso": "KZ",
+"n": "Kazakhstan"
+},
+"קטר": {
+"iso": "QA",
+"n": "Qatar"
+},
+"קירגיזסטן": {
+"iso": "KG",
+"n": "Kyrgyzstan"
+},
+"קיריבטי": {
+"iso": "KI",
+"n": "Kiribati"
+},
+"קלדוניה החדשה": {
+"iso": "NC",
+"n": "New Caledonia"
+},
+"קמבודיה": {
+"iso": "KH",
+"n": "Cambodia"
+},
+"קמרון": {
+"iso": "CM",
+"n": "Cameroon"
+},
+"קנדה": {
+"iso": "CA",
+"n": "Canada"
+},
+"קניה": {
+"iso": "KE",
+"n": "Kenya"
+},
+"קפריסין": {
+"iso": "CY",
+"n": "Cyprus"
+},
+"קרואטיה": {
+"iso": "HR",
+"n": "Croatia"
+},
+"קרחון סיאצ'ן": {
+"iso": "",
+"n": "Siachen Glacier"
+},
+"קריית הוותיקן": {
+"iso": "VA",
+"n": "Vatican"
+},
+"רואנדה": {
+"iso": "RW",
+"n": "Rwanda"
+},
+"רומניה": {
+"iso": "RO",
+"n": "Romania"
+},
+"רוסיה": {
+"iso": "RU",
+"n": "Russia"
+},
+"שוודיה": {
+"iso": "SE",
+"n": "Sweden"
+},
+"שווייץ": {
+"iso": "CH",
+"n": "Switzerland"
+},
+"תאילנד": {
+"iso": "TH",
+"n": "Thailand"
+},
+"תוניסיה": {
+"iso": "TN",
+"n": "Tunisia"
+},
+"תימן": {
+"iso": "YE",
+"n": "Yemen"
+}
+},
+"source": "nvkelso/natural-earth-vector@ca96624a56bd078437bca8184e78163e5039ad19"
+}

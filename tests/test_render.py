@@ -112,9 +112,13 @@ def test_a_world_map_marking_a_small_state_renders():
     assert "סינגפור" in svg
 
 
-def test_a_coarse_only_hit_resolves_and_warns():
+def test_a_coarse_only_hit_resolves_and_warns(monkeypatch):
     # No city-scale hit exists for this fetch, only an oblast, so pick() falls
-    # back to it - and render must warn that its centre can be far off.
+    # back to it - and render must warn that its centre can be far off. The
+    # gazetteer would find the city itself, so it is emptied here.
+    import tools.places as places
+    monkeypatch.setattr(places, "default_gazetteer", lambda: {})
+
     def fetch(name):
         return [{"osm_id": 1, "lat": "55.7522", "lon": "37.6156",
                  "category": "boundary", "type": "administrative",
@@ -217,3 +221,36 @@ def test_auto_extent_frames_the_markers_and_israel():
     # and the window is shaped to the canvas, so the map is not letterboxed
     k = math.cos(math.radians((la0 + la1) / 2))
     assert abs(((lo1 - lo0) * k) / (la1 - la0) - 480 / 220) < 0.01
+
+
+def test_a_gazetteer_hit_names_the_place_it_landed_on():
+    # קובה is Cuba to a reader and Kobe to the gazetteer. The warning carries the
+    # English name so a reviewer can catch it; nothing else would.
+    s = spec(extent="auto", base="world", markers=[{"place": "לוד"}])
+    _svg, _defs, warnings = render(s, dict(CACHED), fetch=explode)
+    assert any(w.startswith("GAZETTEER: לוד -> Lod, il") for w in warnings)
+
+
+def test_a_country_named_as_a_marker_is_shaded_not_dotted():
+    # סוריה is Soria, Spain, to the city gazetteer, and containment passes it
+    # because Soria is in Spain. A country is an area: it is highlighted instead.
+    s = spec(extent="auto", highlight=[], markers=[{"place": "ירושלים"}, {"place": "סוריה"}])
+    svg, _defs, warnings = render(s, dict(CACHED), fetch=explode)
+    assert 'class="hi"' in svg
+    assert "סוריה" not in svg
+    assert any(w.startswith("COUNTRY: סוריה") and "Syria" in w for w in warnings)
+    assert not any("Soria" in w for w in warnings)
+
+
+def test_a_map_of_only_a_country_renders_and_frames_it():
+    s = spec(extent="auto", highlight=[], markers=[{"place": "קולומביה"}])
+    svg, _defs, warnings = render(s, dict(CACHED), fetch=explode)
+    assert 'class="hi"' in svg
+    assert any(w.startswith("COUNTRY: קולומביה") for w in warnings)
+
+
+def test_a_city_state_stays_a_dot():
+    s = spec(extent="auto", highlight=[], markers=[{"place": "סינגפור"}])
+    svg, _defs, warnings = render(s, dict(CACHED), fetch=explode)
+    assert "סינגפור" in svg
+    assert not any(w.startswith("COUNTRY:") for w in warnings)
