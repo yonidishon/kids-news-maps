@@ -86,6 +86,104 @@ def marker_svg(x, y, label, dx=0, dy=-13):
     )
 
 
+# Country names are English and set apart from the Hebrew place labels: an
+# italic serif, lighter and smaller, so a reader tells a country from a city.
+COUNTRY_LABEL_STYLE = (
+    "font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:12px;"
+    "letter-spacing:.04em;fill:var(--ink-soft,#4A545C);paint-order:stroke;"
+    "stroke:var(--map-sea,#E7EDEF);stroke-width:3;stroke-linejoin:round"
+)
+
+
+def _clip_ring(ring, lo0, lo1, la0, la1):
+    """Sutherland-Hodgman against the lon/lat window."""
+    edges = [(lambda p: p[0] >= lo0, lambda a, b: (lo0, a[1] + (b[1] - a[1]) * (lo0 - a[0]) / (b[0] - a[0]))),
+             (lambda p: p[0] <= lo1, lambda a, b: (lo1, a[1] + (b[1] - a[1]) * (lo1 - a[0]) / (b[0] - a[0]))),
+             (lambda p: p[1] >= la0, lambda a, b: (a[0] + (b[0] - a[0]) * (la0 - a[1]) / (b[1] - a[1]), la0)),
+             (lambda p: p[1] <= la1, lambda a, b: (a[0] + (b[0] - a[0]) * (la1 - a[1]) / (b[1] - a[1]), la1))]
+    pts = [tuple(p) for p in ring]
+    for inside, cut in edges:
+        if not pts:
+            break
+        out = []
+        for i, b in enumerate(pts):
+            a = pts[i - 1]
+            if inside(b):
+                if not inside(a):
+                    out.append(cut(a, b))
+                out.append(b)
+            elif inside(a):
+                out.append(cut(a, b))
+        pts = out
+    return pts
+
+
+def _centroid(ring):
+    """Area-weighted centroid and absolute area of a polygon."""
+    a = cx = cy = 0.0
+    for (x1, y1), (x2, y2) in zip(ring, ring[1:] + ring[:1]):
+        c = x1 * y2 - x2 * y1
+        a += c
+        cx += (x1 + x2) * c
+        cy += (y1 + y2) * c
+    if abs(a) < 1e-12:
+        return None, 0.0
+    return (cx / (3 * a), cy / (3 * a)), abs(a) / 2
+
+
+# The owner's editorial choice for this digest: an area Natural Earth names
+# Palestine is labelled Israel. Shading is unchanged.
+LABEL_AS = {"Palestine": "Israel"}
+
+
+def _box(cx, baseline, half, up, down):
+    return (cx - half, baseline - up, cx + half, baseline + down)
+
+
+def _overlap(a, b):
+    return a[0] < b[2] and b[0] < a[2] and a[1] < b[3] and b[1] < a[3]
+
+
+def country_labels(features, extent, proj, placed, w, h):
+    """One English label per country, at the centre of its largest visible part,
+    moved off any city marker, city label or other country label.
+
+    Boxes are estimated from character counts: 12px italic serif for country
+    names, 15px bold sans for the Hebrew city labels.
+    """
+    taken = []
+    for m in placed:
+        taken.append(_box(m["x"], m["y"] + 5, 6, 11, 1))
+        taken.append(_box(m["x"] + m["dx"], m["y"] + m["dy"], len(m["label"]) * 4.6 + 2, 13, 4))
+    out, done = [], set()
+    # Largest first, so a name shared by two shaded areas sits on the bigger one.
+    for f in sorted(features, key=lambda f: -max(_centroid(_clip_ring(r, *extent))[1] for r in f["rings"])):
+        name = LABEL_AS.get(f["n"], f["n"])
+        if name in done:
+            continue
+        best, best_area = None, 0.0
+        for ring in f["rings"]:
+            c, area = _centroid(_clip_ring(ring, *extent))
+            if c and area > best_area:
+                best, best_area = c, area
+        if best is None:
+            continue
+        x0, y0 = proj(*best)
+        half = len(name) * 3.6 + 2
+        x0 = min(max(x0, half + 3), w - half - 3)
+        spots = [(x0 + dx, y0 + dy)
+                 for dy in (0, 14, -14, 28, -28, 42, -42)
+                 for dx in (0, -half, half)]
+        spots = [(x, y) for x, y in spots if half + 3 <= x <= w - half - 3 and 13 <= y <= h - 4]
+        clear = [p for p in spots if not any(_overlap(_box(*p, half, 10, 3), t) for t in taken)]
+        x, y = (clear or spots or [(x0, y0)])[0]
+        taken.append(_box(x, y, half, 10, 3))
+        done.add(name)
+        out.append(f'<text class="ctry" x="{x:.1f}" y="{y:.1f}" text-anchor="middle" '
+                   f'style="{COUNTRY_LABEL_STYLE}">{html.escape(name)}</text>')
+    return "".join(out)
+
+
 def point_in_rings(rings, lon, lat):
     """Ray casting. True when the point falls inside an odd number of rings."""
     inside = False
@@ -368,6 +466,7 @@ def render(spec, cache, fetch=None):
         body += f'<path class="hi" d="{path_for(hi, proj, TOL[base])}"/>'
     for m in placed:
         body += marker_svg(m["x"], m["y"], m["label"], m["dx"], m["dy"])
+    body += country_labels(hi, extent, proj, placed, w, h)
 
     cls = "map portrait" if h > w else "map"
     xlink = ' xmlns:xlink="http://www.w3.org/1999/xlink"' if base == "world" else ""

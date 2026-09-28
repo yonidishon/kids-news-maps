@@ -164,3 +164,18 @@ def test_an_incompatible_existing_defs_does_not_suppress_the_right_one():
     assert 'id="wd-480x220"' in out, "the correctly scaled defs must be inserted"
     assert 'id="wd-720x340"' in out, "the existing one must survive"
     assert 'href="#wd-480x220"' in out
+
+
+def test_a_page_is_never_written_inside_the_repo(tmp_path, capsys):
+    # A digest page carries full article text, and the running copy of this
+    # repo is public: a page left in the checkout is one commit from published.
+    from tools.inject import REPO, main
+
+    page = tmp_path / "page.html"
+    page.write_text("<article class=\"story\"></article>", encoding="utf-8")
+    entries = tmp_path / "entries.json"
+    entries.write_text("[]", encoding="utf-8")
+    out = REPO / "digest-maps.html"
+    assert main(["--page", str(page), "--entries", str(entries), "--out", str(out)]) == 1
+    assert not out.exists()
+    assert "outside the repo" in capsys.readouterr().err
