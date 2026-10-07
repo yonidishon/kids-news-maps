@@ -44,6 +44,15 @@
   "resolved": "2026-09-21",
   "type": "city"
  },
+ "בארי": {
+  "cc": "il",
+  "display_name": "בארי, נפת באר שבע, מחוז הדרום, ישראל",
+  "lat": 31.4241619,
+  "lon": 34.4911156,
+  "osm_id": 38918700,
+  "resolved": "2026-10-07",
+  "type": "village"
+ },
  "בריסל": {
   "cc": "be",
   "display_name": "בריסל, Brussel-Hoofdstad - Bruxelles-Capitale, Région de Bruxelles-Capitale - Brussels Hoofdstedelijk Gewest, בֶּלְגְיָה",
@@ -178,6 +187,15 @@
   "osm_id": 9326284,
   "resolved": "2026-09-28",
   "type": "strait"
+ },
+ "נחל עוז": {
+  "cc": "il",
+  "display_name": "נחל עוז, נפת אשקלון, מחוז הדרום, ישראל",
+  "lat": 31.4724074,
+  "lon": 34.4982114,
+  "osm_id": 92392967,
+  "resolved": "2026-10-07",
+  "type": "village"
  },
  "סולאווסי": {
   "cc": "id",
