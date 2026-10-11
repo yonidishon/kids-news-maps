@@ -35,6 +35,15 @@
   "resolved": "2026-09-21",
   "type": "city"
  },
+ "באב אל־מנדב": {
+  "cc": "dj",
+  "display_name": "Détroit de Bab-el-Mandeb باب المندب, ג'יבוטי",
+  "lat": 12.5743764,
+  "lon": 43.3128158,
+  "osm_id": 11169730,
+  "resolved": "2026-10-11",
+  "type": "strait"
+ },
  "באר שבע": {
   "cc": "il",
   "display_name": "באר שבע, נפת באר שבע, מחוז הדרום, ישראל",
