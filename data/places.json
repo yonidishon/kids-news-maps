@@ -395,6 +395,15 @@
   "resolved": "2026-09-21",
   "type": "city"
  },
+ "רמת הגולן": {
+  "cc": "il",
+  "display_name": "רמת הגולן / Golan Heights",
+  "lat": 33.003098,
+  "lon": 35.73196,
+  "resolved": "2026-11-01",
+  "source": "natural-earth",
+  "type": "region"
+ },
  "רעים": {
   "cc": "il",
   "display_name": "רעים, נפת באר שבע, מחוז הדרום, ישראל",
