@@ -396,12 +396,10 @@
   "type": "city"
  },
  "רמת הגולן": {
-  "cc": "",
-  "display_name": "רמת הגולן / Golan Heights - מרכז המצולע של Natural Earth (TYPE=Indeterminate, SOVEREIGNT=Israel, ISO_A2=-99)",
+  "cc": "il",
+  "display_name": "רמת הגולן / Golan Heights",
   "lat": 33.003098,
   "lon": 35.73196,
-  "ne_commit": "ca96624a56bd078437bca8184e78163e5039ad19",
-  "ne_layer": "ne_10m_admin_0_disputed_areas",
   "resolved": "2026-11-01",
   "source": "natural-earth",
   "type": "region"
